@@ -3,17 +3,18 @@
 // See https://kit.svelte.dev/docs/typescript
 // for information about these interfaces
 declare namespace App {
-	interface Locals {}
+	interface Locals { }
 
-	interface Platform {}
+	interface Platform { }
 
-	interface Session {}
+	interface Session { }
 
-	interface Stuff {}
+	interface Stuff { }
 }
 
 type Todo = {
-  created_at: Date;
-  text: string;
-  done: boolean;
+	uid: string;
+	created_at: Date;
+	text: string;
+	done: boolean;
 }
