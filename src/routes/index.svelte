@@ -1,6 +1,7 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
 	import { enhance } from '$lib/actions/form';
+
 	export const load: Load = async ({ fetch }) => {
 		const res = await fetch('/todos.json');
 		if (res.ok) {
@@ -20,7 +21,6 @@
 	import TodoItem from '$lib/todo-item.svelte';
 	export let todos: Todo[];
 	const title = 'Todo';
-
 	const processNewTodoResult = async (res: Response, form: HTMLFormElement) => {
 		const newTodo = await res.json();
 		todos = [...todos, newTodo];

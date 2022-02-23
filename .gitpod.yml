@@ -1,7 +1,7 @@
 image: gitpod/workspace-postgres
 
 tasks:
-  - init: npm install
+  - init: npm install && npm run build
     command: |
       export HMR_HOST=`gp url 3000`
       npm run dev
@@ -22,10 +22,10 @@ ports:
 vscode:
   extensions:
     - svelte.svelte-vscode
-    - prisma.prisma
-  
+    - Prisma.prisma
+
 github:
   prebuilds:
     master: true
     branches: true
-    pullRequests: true 
+    pullRequests: true
