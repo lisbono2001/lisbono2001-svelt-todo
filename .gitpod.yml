@@ -1,12 +1,11 @@
 image: gitpod/workspace-postgres
-
 tasks:
-  - init: npm install
+  - init: npm install && npm run build
     command: |
       export HMR_HOST=`gp url 3000`
       npm run dev
     env:
-      DATABASE_URL: postgres://gitpod@localhost/todos
+          DATABASE_URL: postgres://gitpod@localhost/todos
   - command: npx prisma studio
     env:
       DATABASE_URL: postgres://gitpod@localhost/todos
@@ -19,13 +18,14 @@ ports:
   - port: 5555
     onOpen: open-browser
 
+
 vscode:
   extensions:
-    - svelte.svelte-vscode
+    - fivethree.vscode-svelte-snippets
     - prisma.prisma
-  
+
 github:
   prebuilds:
     master: true
     branches: true
-    pullRequests: true 
+    pullRequests: true
